@@ -153,6 +153,7 @@ class Csento4acEnv:
             dtype=gs.tc_float,
             device=gs.device,
         )
+        self.default_leg_dof_pos = self.default_dof_pos[self.leg_action_idx]
         self.extras = dict()
 
         self.reward_functions, self.episode_sums = dict(), dict()
@@ -294,11 +295,6 @@ class Csento4acEnv:
         sigma = self.reward_cfg[sigma_key]
         return torch.exp(-error / sigma)
 
-    def _exp_penalty(self, error: torch.Tensor, sigma_key: str) -> torch.Tensor:
-        """1 - exp(-error/sigma): 0 when error=0, approaches 1 as error grows (use with negative scale)."""
-        sigma = self.reward_cfg[sigma_key]
-        return 1.0 - torch.exp(-error / sigma)
-
     def _reward_tracking_lin_vel(self):
         """Tracking of linear velocity commands (xy axes)."""
         lin_vel_error = torch.sum(torch.square(self.commands[:, :2] - self.base_lin_vel[:, :2]), dim=1)
@@ -312,29 +308,30 @@ class Csento4acEnv:
     def _reward_lin_vel_z(self):
         """Penalize z axis base linear velocity."""
         error = torch.square(self.base_lin_vel[:, 2])
-        return self._exp_penalty(error, "lin_vel_z_sigma")
+        return self._exp_reward(error, "lin_vel_z_sigma")
 
     def _reward_orientation(self):
         """Penalize tilt: upright body frame has projected_gravity xy ~= 0."""
         error = torch.sum(torch.square(self.projected_gravity[:, :2]), dim=1)
-        return self._exp_penalty(error, "orientation_sigma")
+        return self._exp_reward(error, "orientation_sigma")
 
     def _reward_ang_vel_xy(self):
         """Penalize roll/pitch angular velocity (keep body level while moving)."""
         error = torch.sum(torch.square(self.base_ang_vel[:, :2]), dim=1)
-        return self._exp_penalty(error, "ang_vel_xy_sigma")
+        return self._exp_reward(error, "ang_vel_xy_sigma")
 
     def _reward_action_rate(self):
         """Penalize changes in actions."""
         error = torch.sum(torch.square(self.last_actions - self.actions), dim=1)
-        return self._exp_penalty(error, "action_rate_sigma")
+        return self._exp_reward(error, "action_rate_sigma")
 
     def _reward_similar_to_default(self):
-        """Penalize joint poses far away from default pose."""
-        error = torch.sum(torch.square(self.dof_pos - self.default_dof_pos), dim=1)
-        return self._exp_penalty(error, "similar_to_default_sigma")
+        """Reward leg joints (hip/knee) close to default pose; wheels excluded."""
+        leg_pos = self.dof_pos[:, self.leg_action_idx]
+        error = torch.sum(torch.square(leg_pos - self.default_leg_dof_pos), dim=1)
+        return self._exp_reward(error, "similar_to_default_sigma")
 
     def _reward_base_height(self):
         """Penalize base height away from target."""
         error = torch.square(self.base_pos[:, 2] - self.reward_cfg["base_height_target"])
-        return self._exp_penalty(error, "base_height_sigma")
+        return self._exp_reward(error, "base_height_sigma")
