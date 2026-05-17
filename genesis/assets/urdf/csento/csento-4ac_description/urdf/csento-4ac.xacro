@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<robot name="csento-4ac" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="materials.xacro" />
+<xacro:include filename="csento-4ac.trans" />
+<xacro:include filename="csento-4ac.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="1.2221840620011837e-15 -1.344402468201302e-15 0.07499422815852935" rpy="0 0 0"/>
+    <mass value="5.048349302415931"/>
+    <inertia ixx="0.022851" iyy="0.021218" izz="0.027446" ixy="0.0" iyz="-0.001749" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_leg_link_1">
+  <inertial>
+    <origin xyz="0.005000000000001087 3.4123934257479503e-06 -0.04364139310878208" rpy="0 0 0"/>
+    <mass value="0.049572840146082736"/>
+    <inertia ixx="0.000134" iyy="0.000131" izz="3e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.105 -0.0 0.109" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/left_leg_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.105 -0.0 0.109" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/left_leg_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_leg_link_1">
+  <inertial>
+    <origin xyz="-0.004999999999998797 3.412393425712423e-06 -0.04364139310878214" rpy="0 0 0"/>
+    <mass value="0.049572840146082736"/>
+    <inertia ixx="0.000134" iyy="0.000131" izz="3e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.105 0.0 0.109" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/right_leg_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.105 0.0 0.109" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/right_leg_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-0.012378168968434841 -1.0395457435431125e-05 -1.592358780944103e-08" rpy="0 0 0"/>
+    <mass value="0.32978061044955914"/>
+    <inertia ixx="0.000671" iyy="0.000352" izz="0.000351" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.115 -7e-06 0.242" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.115 -7e-06 0.242" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="0.012378168809641668 1.0528252256866493e-05 -1.4934656511478295e-08" rpy="0 0 0"/>
+    <mass value="0.3297801928414847"/>
+    <inertia ixx="0.000671" iyy="0.000352" izz="0.000351" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.115 -7e-06 0.242" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.115 -7e-06 0.242" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_hip_main_link_1">
+  <inertial>
+    <origin xyz="-0.004999999999998769 2.9738073348717364e-05 -0.05455435422776721" rpy="0 0 0"/>
+    <mass value="0.06745093371390704"/>
+    <inertia ixx="0.00017" iyy="0.000162" izz="9e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.095 -0.0 -0.04" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/right_hip_main_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.095 -0.0 -0.04" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/right_hip_main_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_hip_main_link_1">
+  <inertial>
+    <origin xyz="0.005000000000001184 2.973807334878842e-05 -0.054554354227767186" rpy="0 0 0"/>
+    <mass value="0.06745093371390704"/>
+    <inertia ixx="0.00017" iyy="0.000162" izz="9e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.095 -0.0 -0.04" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/left_hip_main_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.095 -0.0 -0.04" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/left_hip_main_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.01 0.0 -0.149" rpy="0 0 0"/>
+  <parent link="left_hip_main_link_1"/>
+  <child link="left_leg_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 12" type="continuous">
+  <origin xyz="-0.01 -0.0 -0.149" rpy="0 0 0"/>
+  <parent link="right_hip_main_link_1"/>
+  <child link="right_leg_link_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 13" type="continuous">
+  <origin xyz="-0.01 7e-06 -0.133" rpy="0 0 0"/>
+  <parent link="right_leg_link_1"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 14" type="continuous">
+  <origin xyz="0.01 7e-06 -0.133" rpy="0 0 0"/>
+  <parent link="left_leg_link_1"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 15" type="continuous">
+  <origin xyz="-0.095 0.0 0.04" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_hip_main_link_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="0.095 0.0 0.04" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_hip_main_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+</robot>

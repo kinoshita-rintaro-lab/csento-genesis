@@ -1,0 +1,257 @@
+<?xml version="1.0" ?>
+<robot name="csento" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find csento_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find csento_description)/urdf/csento.trans" />
+<xacro:include filename="$(find csento_description)/urdf/csento.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="1.2071058247535626e-15 -1.3599040304185705e-15 0.07500000000000001" rpy="0 0 0"/>
+    <mass value="5.047516780362731"/>
+    <inertia ixx="0.02285" iyy="0.02121" izz="0.027439" ixy="-0.0" iyz="-0.001749" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_hip_main_link_1">
+  <inertial>
+    <origin xyz="0.005000000000001198 0.03508964363789582 -0.011771944639040797" rpy="0 0 0"/>
+    <mass value="0.06745093371390704"/>
+    <inertia ixx="0.00017" iyy="9.9e-05" izz="7.2e-05" ixy="-0.0" iyz="7.6e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.09 0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/left_hip_main_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.09 0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/left_hip_main_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_hip_sub_link_1">
+  <inertial>
+    <origin xyz="0.0050000000000011285 0.07703716339337188 0.008526238886059377" rpy="0 0 0"/>
+    <mass value="0.012644264262499203"/>
+    <inertia ixx="5.3e-05" iyy="4.2e-05" izz="1.2e-05" ixy="0.0" iyz="2.2e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.09 0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/left_hip_sub_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.09 0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/left_hip_sub_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_leg_link_1">
+  <inertial>
+    <origin xyz="0.00500000000000117 -0.046817233108449374 -0.05422686792796584" rpy="0 0 0"/>
+    <mass value="0.049572840146082736"/>
+    <inertia ixx="0.000134" iyy="7.7e-05" izz="5.8e-05" ixy="0.0" iyz="-6.3e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1 -0.114074 0.062948" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/left_leg_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1 -0.114074 0.062948" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/left_leg_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="0.012378168809641571 7.480733955976537e-06 -7.317319293598246e-06" rpy="0 0 0"/>
+    <mass value="0.3297801928414847"/>
+    <inertia ixx="0.000671" iyy="0.000352" izz="0.000351" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.11 -0.008861 0.184812" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.11 -0.008861 0.184812" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_hip_main_link_1">
+  <inertial>
+    <origin xyz="-0.004999999999998783 0.03508964363789573 -0.011771944639040778" rpy="0 0 0"/>
+    <mass value="0.06745093371390704"/>
+    <inertia ixx="0.00017" iyy="9.9e-05" izz="7.2e-05" ixy="-0.0" iyz="7.6e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09 0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/right_hip_main_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09 0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/right_hip_main_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_hip_sub_link_1">
+  <inertial>
+    <origin xyz="-0.004999999999998825 0.07703716339337152 0.008526238886059634" rpy="0 0 0"/>
+    <mass value="0.012644264262499203"/>
+    <inertia ixx="5.3e-05" iyy="4.2e-05" izz="1.2e-05" ixy="0.0" iyz="2.2e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09 0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/right_hip_sub_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09 0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/right_hip_sub_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_leg_link_1">
+  <inertial>
+    <origin xyz="-0.0049999999999987554 -0.04681723310844846 -0.05422686792796691" rpy="0 0 0"/>
+    <mass value="0.049572840146082736"/>
+    <inertia ixx="0.000134" iyy="7.7e-05" izz="5.8e-05" ixy="0.0" iyz="-6.3e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1 -0.114074 0.062948" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/right_leg_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1 -0.114074 0.062948" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/right_leg_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-0.012378168968434744 -8.35699405809208e-06 6.356304932342294e-06" rpy="0 0 0"/>
+    <mass value="0.32978061044955914"/>
+    <inertia ixx="0.000671" iyy="0.000351" izz="0.000352" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.11 -0.008861 0.184812" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.11 -0.008861 0.184812" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find csento_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="left_hip_joint" type="continuous">
+  <origin xyz="0.09 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_hip_main_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="left_knee_joint" type="continuous">
+  <origin xyz="0.01 0.095775 -0.084141" rpy="0 0 0"/>
+  <parent link="left_hip_main_link_1"/>
+  <child link="left_leg_link_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <mimic joint="left_hip_joint" multiplier="-1.0" offset="0.0"/>
+</joint>
+
+<joint name="left_sub_joint" type="continuous">
+  <origin xyz="0.09 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_hip_sub_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <mimic joint="left_hip_joint" multiplier="1.0" offset="0.0"/>
+</joint>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="0.01 -0.086914 -0.100671" rpy="0 0 0"/>
+  <parent link="left_leg_link_1"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="right_hip_joint" type="continuous">
+  <origin xyz="-0.09 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_hip_main_link_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="right_knee_joint" type="continuous">
+  <origin xyz="-0.01 0.095775 -0.084141" rpy="0 0 0"/>
+  <parent link="right_hip_main_link_1"/>
+  <child link="right_leg_link_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <mimic joint="right_hip_joint" multiplier="-1.0" offset="0.0"/>
+</joint>
+
+<joint name="right_sub_joint" type="continuous">
+  <origin xyz="-0.09 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_hip_sub_link_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <mimic joint="right_hip_joint" multiplier="1.0" offset="0.0"/>
+</joint>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="-0.01 -0.086914 -0.100671" rpy="0 0 0"/>
+  <parent link="right_leg_link_1"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+</robot>
