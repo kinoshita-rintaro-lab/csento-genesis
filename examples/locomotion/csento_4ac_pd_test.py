@@ -160,7 +160,7 @@ def main():
     print(f"  position joints ({len(pos_names)}): {pos_names}")
     print(f"  torque joints: {cfg.get('torque_joint_names', [])}")
     print(f"  kp={cfg.get('kp')}  kd={cfg.get('kd')}")
-
+    print(f"  default joint angles: {cfg['default_joint_angles']}")
     pos_default = torch.tensor(
         [cfg["default_joint_angles"][n] for n in pos_names],
         dtype=gs.tc_float,
